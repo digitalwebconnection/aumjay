@@ -20,7 +20,7 @@ const allProducts: Product[] = [
     description: "Waaree has developed a range of single and three-phase inverters with a focus on quality, reliability, and efficiency.",
     details: "The solar inverter helps convert the direct current (DC) from the solar panels into alternating current (AC), which is used by domestic and commercial appliances.",
     subtitle: "On-Grid Inverters",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPs-ZiCJ6PvOv514pSPo_HMEa3eAQhlXZ4ZCBomMw8NoTW4KbTG8Rm-745MSp5ZKi8KvQ&usqp=CAU"
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjFUUF7bEuUDxcSglLMQtG_nEoPFQXjK0xCW-QLo4ml3vEwCt81ulbolrFQmmONG-EuwY&usqp=CAU"
   },
   {
     id: "panels",
@@ -28,7 +28,7 @@ const allProducts: Product[] = [
     description: "High-efficiency monocrystalline and polycrystalline solar panels designed for maximum energy generation and durability.",
     details: "Our solar panels are manufactured using cutting-edge technology to ensure optimal performance in various weather conditions.",
     subtitle: "Monocrystalline Panels",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRitKJTt6NNDLeBIcbq5MexpQVQAau3WJ1paWFzk_7MTApSVIvt2e7UcWuo0DDKNAkAfQg&usqp=CAU"
+    image: "https://www.nextenergy.my/wp-content/uploads/2021/06/home-solar-system-malaysia.jpg"
   },
   {
     id: "battery",
@@ -36,7 +36,7 @@ const allProducts: Product[] = [
     description: "Advanced lithium-ion battery systems for reliable energy storage and backup power solutions.",
     details: "Our battery storage systems provide seamless backup power during outages and help maximize solar energy utilization.",
     subtitle: "Lithium-Ion Technology",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJGEeUrsmf8d1ItviqkwX_R14m5RZ2JqH6HL1S3J16O-h4tw132H1ZcjDzvnR9o2-Xypc&usqp=CAU"
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqsEpHVfKQP5cHiNif5QsyGaDKqeQaEn9BQQ&s"
   },
   {
     id: "pv-module",
@@ -44,7 +44,7 @@ const allProducts: Product[] = [
     description: "High-performance photovoltaic modules with advanced cell technology for maximum energy conversion.",
     details: "Our PV modules feature cutting-edge PERC technology and anti-reflective glass coating for superior performance in all weather conditions.",
     subtitle: "PERC Technology",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8yt5_ymcT1XCFt7rnoQykd2q4nnrg0Bqa1w&s"
+    image: "https://greenhomesystems.com/wp-content/uploads/2023/09/blog-cover-photo-98.jpg"
   },
   {
     id: "waaree-prime",
@@ -52,7 +52,7 @@ const allProducts: Product[] = [
     description: "Premium solar solutions with industry-leading efficiency ratings and extended warranty coverage.",
     details: "Waaree Prime represents our flagship product line with the highest efficiency ratings and premium build quality.", 
     subtitle: "Premium Series",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBq9weCbYnhYFuxas9p49FrGuv7amvVjLSGgNhS4TXYqkSGkKM38klVZ_GZofXwR8b00U&usqp=CAU"
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt1zwjJdpWveepYUO-mIOLcB3TwtUvadgcY60EyLgrUb6N0QGkAjPNcgAlsX3dqBSW59k&usqp=CAU"
   },
   {
     id: "micaee-export",
@@ -60,7 +60,7 @@ const allProducts: Product[] = [
     description: "Export-quality solar products meeting international standards and certifications.",
     details: "Our export-grade products are designed to meet stringent international quality standards and certifications.", 
     subtitle: "Export Quality",
-    image: "https://cdn.prod.website-files.com/65b217df08a6f1f6aba3d4ce/6840d6206f07d987e265d447_682b2819d64c39a34f9371bc_file-20241009-15-8qfady.jpeg"
+    image: "https://waaree.com/wp-content/uploads/2025/07/Solar-panels-online-scaled.jpg"
   },
 ]
 
@@ -117,7 +117,7 @@ export function InteractiveProductShowcase(): JSX.Element {
         setNextBg(null)
         setIsSwitching(false)
       }, 720) as any
-    }, 5000)
+    }, 3000)
 
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current)

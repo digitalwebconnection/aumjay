@@ -6,9 +6,9 @@ import { Sun, Zap, Shield } from "lucide-react"
 import { useEffect, useState } from "react"
 
 const bgImages = [
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPs-ZiCJ6PvOv514pSPo_HMEa3eAQhlXZ4ZCBomMw8NoTW4KbTG8Rm-745MSp5ZKi8KvQ&usqp=CAU",
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRitKJTt6NNDLeBIcbq5MexpQVQAau3WJ1paWFzk_7MTApSVIvt2e7UcWuo0DDKNAkAfQg&usqp=CAU",
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRitKJTt6NNDLeBIcbq5MexpQVQAau3WJ1paWFzk_7MTApSVIvt2e7UcWuo0DDKNAkAfQg&usqp=CAU",
+  "https://greenhomesystems.com/wp-content/uploads/2023/09/blog-cover-photo-98.jpg",
+  "https://waaree.com/wp-content/uploads/2025/07/Solar-panels-online-scaled.jpg",
+  "https://frontend-cdn.solarreviews.com/hero-placeholder.jpg",
 ]
 
 export function HeroSection() {
@@ -17,7 +17,7 @@ export function HeroSection() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % bgImages.length)
-    }, 6000)
+    }, 4000)
     return () => clearInterval(interval)
   }, [])
 
