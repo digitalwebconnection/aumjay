@@ -66,7 +66,7 @@ export function TestimonialsSection() {
           {testimonials.map((testimonial, index) => (
             <Card
               key={index}
-              className={`hover:shadow-lg transition-all duration-500 hover:-translate-y-1 ${
+              className={`hover:shadow-lg bg-white transition-all duration-500 hover:-translate-y-1 ${
                 isVisible ? "animate-slide-up" : "opacity-0"
               }`}
               style={{ animationDelay: `${index * 0.2}s` }}
@@ -74,18 +74,18 @@ export function TestimonialsSection() {
               <CardContent className="p-6">
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-primary text-primary" />
+                    <Star key={i} className="w-5 h-5  text-yellow-400" />
                   ))}
                 </div>
 
                 <div className="relative mb-6">
-                  <Quote className="w-8 h-8 text-primary/20 absolute -top-2 -left-2" />
+                  <Quote className="w-8 h-8 text-yellow/20 absolute -top-2 -left-2" />
                   <p className="text-muted-foreground italic pl-6">"{testimonial.content}"</p>
                 </div>
 
                 <div className="flex items-center gap-3">
                   <Avatar>
-                    <AvatarFallback className="bg-primary text-primary-foreground font-semibold">
+                    <AvatarFallback className="bg-green-800 text-primary-foreground font-semibold">
                       {testimonial.initials}
                     </AvatarFallback>
                   </Avatar>

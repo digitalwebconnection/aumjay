@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Shield, TrendingDown, Zap } from "lucide-react"
+import { motion } from "framer-motion"
 
 const stats = [
   {
@@ -9,21 +10,24 @@ const stats = [
     number: 25,
     suffix: "+",
     label: "Years Warranty",
-    color: "text-primary",
+    color: "text-green-600",
+    bg: "bg-green-100",
   },
   {
     icon: TrendingDown,
     number: 90,
     suffix: "%",
     label: "Savings on Electricity Bills",
-    color: "text-secondary",
+    color: "text-yellow-400",
+    bg: "bg-yellow-100",
   },
   {
     icon: Zap,
     number: 100,
     suffix: "+ kW",
     label: "Projects Pipeline in Mumbai & Thane",
-    color: "text-primary",
+    color: "text-green-600",
+    bg: "bg-green-100",
   },
 ]
 
@@ -56,7 +60,7 @@ export function ImpactNumbersSection() {
           })
         }
       },
-      { threshold: 0.3 },
+      { threshold: 0.3 }
     )
 
     if (sectionRef.current) {
@@ -67,35 +71,63 @@ export function ImpactNumbersSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="py-20 bg-gradient-to-r from-primary/5 to-secondary/5">
-      <div className="container mx-auto px-4">
+    <section
+      ref={sectionRef}
+      className="relative py-20 bg-gradient-to-br from-green-50 via-white to-yellow-50 overflow-hidden"
+    >
+      {/* Glow background effect */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-yellow-200/20 rounded-full blur-3xl" />
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">Proven Impact & Results</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
+          <motion.h2
+            initial={{ opacity: 0, y: -20 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7 }}
+            className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-green-600 to-yellow-600 bg-clip-text text-transparent"
+          >
+            Proven Impact & Results
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto"
+          >
             Numbers that speak for our commitment to sustainable energy solutions.
-          </p>
+          </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* Stats */}
+        <div className="grid md:grid-cols-3 gap-10">
           {stats.map((stat, index) => {
             const Icon = stat.icon
             return (
-              <div
+              <motion.div
                 key={index}
-                className={`text-center transition-all duration-700 ${isVisible ? "animate-slide-up" : "opacity-0"}`}
-                style={{ animationDelay: `${index * 0.2}s` }}
+                initial={{ opacity: 0, y: 40, scale: 0.9 }}
+                animate={
+                  isVisible ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0 }
+                }
+                transition={{ duration: 0.8, delay: index * 0.3 }}
+                whileHover={{ scale: 1.05, y: -6 }}
+                className="text-center bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all"
               >
-                <div className="mb-6 flex justify-center">
-                  <div className="p-4 bg-background rounded-full shadow-lg">
-                    <Icon className={`w-12 h-12 ${stat.color}`} />
-                  </div>
+                <div
+                  className={`mb-6 flex justify-center items-center w-20 h-20 rounded-full ${stat.bg} shadow-inner`}
+                >
+                  <Icon className={`w-10 h-10 ${stat.color}`} />
                 </div>
-                <div className={`text-5xl md:text-6xl font-bold mb-2 ${stat.color} animate-counter`}>
+                <div
+                  className={`text-5xl md:text-6xl font-extrabold mb-2 ${stat.color}`}
+                >
                   {animatedNumbers[index]}
                   {stat.suffix}
                 </div>
-                <p className="text-lg text-muted-foreground font-medium">{stat.label}</p>
-              </div>
+                <p className="text-lg text-slate-700 font-medium">
+                  {stat.label}
+                </p>
+              </motion.div>
             )
           })}
         </div>

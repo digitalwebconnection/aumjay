@@ -138,7 +138,7 @@ export function InteractiveProductShowcase(): JSX.Element {
   }
 
   return (
-    <section className="relative min-h-screen overflow-hidden text-white">
+    <section className="relative h-120 overflow-hidden text-white">
       {/* BACKGROUND */}
       <div className="absolute inset-0 z-0">
         <div className={`absolute inset-0 bg-cover bg-center transform transition-transform duration-700 ease-in-out ${isSwitching ? "scale-105 opacity-90" : "scale-100 opacity-100"}`} style={{ backgroundImage: `url(${currentBg})` }} />
@@ -149,7 +149,7 @@ export function InteractiveProductShowcase(): JSX.Element {
       </div>
 
       {/* LEFT BUTTONS */}
-      <div ref={buttonContainerRef} className="absolute top-1/2 -translate-y-1/2 left-6 z-30 flex flex-col gap-4 overflow-hidden h-96">
+      <div ref={buttonContainerRef} className="absolute top-1/2 -translate-y-1/3 left-6 z-30 flex flex-col gap-4 overflow-hidden h-96">
         {allProducts.map((p) => (
           <button
             key={p.id}
@@ -163,7 +163,7 @@ export function InteractiveProductShowcase(): JSX.Element {
       </div>
 
       {/* MAIN CONTENT */}
-      <div className="relative z-20 flex items-center min-h-screen px-6 md:px-50">
+      <div className="relative z-20 flex items-center h-full px-6 md:px-50">
         <div className="max-w-2xl">
           <h2 key={`title-${activeProduct.id}`} className="text-4xl md:text-5xl font-bold mb-4">{activeProduct.title}</h2>
           <p key={`desc-${activeProduct.id}`} className="text-lg md:text-xl mb-6 leading-relaxed">{activeProduct.description}</p>
