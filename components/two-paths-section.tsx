@@ -148,7 +148,7 @@ export function TwoPathsSection() {
                   ))}
                 </div>
                 <Button
-                  className="w-full text-black font-bold mt-6 relative overflow-hidden group bg-green-700"
+                  className="w-full text-black font-bold mt-6 relative overflow-hidden group bg-green-"
                   size="lg"
                 >
                   <span className="absolute inset-0 bg-white/30 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />

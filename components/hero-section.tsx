@@ -22,7 +22,7 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section className="relative min-h-screen flex items-center justify-start overflow-hidden">
+    <section className="relative py-15 flex items-center justify-start overflow-hidden">
       {/* Background Slideshow */}
       <div className="absolute inset-0 z-0">
         {bgImages.map((img, index) => (
@@ -53,7 +53,7 @@ export function HeroSection() {
 
       {/* Hero Content */}
       <div className="container mx-auto px-6 lg:px-16 text-left relative z-30">
-        <div className="max-w-2xl transition-all duration-1000 animate-slide-up">
+        <div className="max-w-4xl transition-all duration-1000 animate-slide-up">
           <Badge variant="secondary" className="mb-6 text-sm font-medium animate-pulse-glow">
             🏆 Authorized Waaree Franchise
           </Badge>
