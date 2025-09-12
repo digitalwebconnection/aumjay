@@ -140,12 +140,12 @@ export function InteractiveProductShowcase(): JSX.Element {
   return (
     <section className="relative h-120 overflow-hidden text-white">
       {/* BACKGROUND */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 ">
         <div className={`absolute inset-0 bg-cover bg-center transform transition-transform duration-700 ease-in-out ${isSwitching ? "scale-105 opacity-90" : "scale-100 opacity-100"}`} style={{ backgroundImage: `url(${currentBg})` }} />
         {nextBg && (
           <div className={`absolute inset-0 bg-cover bg-center transition-opacity duration-700 ease-in-out ${isSwitching ? "opacity-100" : "opacity-0"}`} style={{ backgroundImage: `url(${nextBg})` }} />
         )}
-        <div className="absolute inset-0 bg-black/45" />
+        <div className="absolute inset-0 bg-black/65" />
       </div>
 
       {/* LEFT BUTTONS */}

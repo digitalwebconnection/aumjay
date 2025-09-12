@@ -9,21 +9,25 @@ const highlights = [
     icon: Shield,
     title: "25-Year Warranty",
     description: "Comprehensive coverage for your solar panels",
+    color: "text-green-600",
   },
   {
     icon: TrendingUp,
     title: "3–4 Year ROI",
     description: "Quick investment return on solar installation",
+    color: "text-yellow-500",
   },
   {
     icon: Award,
     title: "Waaree Certified",
     description: "Authorized franchise and certified quality",
+    color: "text-green-600",
   },
   {
     icon: Building,
     title: "625 sq. ft. Showroom",
     description: "Local presence for consultation & support",
+    color: "text-yellow-500",
   },
 ]
 
@@ -33,9 +37,7 @@ export function HighlightsSection() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true)
-      },
+      ([entry]) => setIsVisible(entry.isIntersecting),
       { threshold: 0.3 }
     )
     if (sectionRef.current) observer.observe(sectionRef.current)
@@ -45,10 +47,10 @@ export function HighlightsSection() {
   return (
     <section
       ref={sectionRef}
-      className="py-24 bg-gradient-to-b from-green-50 via-white to-yellow-50 relative overflow-hidden"
+      className="py-24 bg-white relative overflow-hidden"
     >
       <div className="container mx-auto px-6 relative z-10">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-green-900">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
           Why Choose Our Solar Installation
         </h2>
 
@@ -58,25 +60,25 @@ export function HighlightsSection() {
             return (
               <Card
                 key={index}
-                className={`relative overflow-hidden text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:scale-105 ${
-                  isVisible ? "animate-slide-up" : "opacity-0"
+                className={`relative overflow-hidden text-center border border-gray-100 bg-white shadow-md hover:shadow-lg transition-all duration-500 hover:-translate-y-2 ${
+                  isVisible ? "animate-fade-up" : "opacity-0"
                 }`}
                 style={{ animationDelay: `${index * 0.15}s` }}
               >
-                <CardContent className="p-6">
-                  {/* Solar shine effect on card */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-green-200 via-transparent to-yellow-200 opacity-10 rotate-12 animate-shine pointer-events-none"></div>
-
-                  <div className="mb-4 flex justify-center relative z-10">
-                    <div className="p-4 bg-green-100 rounded-full shadow-lg hover:scale-110 transition-transform duration-500">
-                      <Icon className="w-10 h-10 text-green-600 animate-pulse-slow" />
+                <CardContent className="p-8">
+                  {/* Icon with brand colors */}
+                  <div className="mb-6 flex justify-center">
+                    <div className="p-5 rounded-full bg-gradient-to-br from-yellow-100 to-green-100 shadow-inner hover:scale-110 transition-transform duration-500">
+                      <Icon className={`w-10 h-10 ${highlight.color}`} />
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-semibold mb-2 text-green-900">
+                  <h3 className="text-lg font-semibold mb-2 text-gray-900">
                     {highlight.title}
                   </h3>
-                  <p className="text-green-700 text-sm">{highlight.description}</p>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {highlight.description}
+                  </p>
                 </CardContent>
               </Card>
             )
@@ -84,53 +86,20 @@ export function HighlightsSection() {
         </div>
       </div>
 
-      {/* Custom animations */}
+      {/* Animations */}
       <style jsx>{`
-        @keyframes slide-up {
-          0% {
+        @keyframes fade-up {
+          from {
+            opacity: 0;
             transform: translateY(20px);
-            opacity: 0;
           }
-          100% {
-            transform: translateY(0);
+          to {
             opacity: 1;
+            transform: translateY(0);
           }
         }
-        .animate-slide-up {
-          animation: slide-up 0.8s ease forwards;
-        }
-
-        @keyframes pulse-slow {
-          0%,
-          100% {
-            opacity: 0.3;
-            transform: scale(1);
-          }
-          50% {
-            opacity: 0.6;
-            transform: scale(1.1);
-          }
-        }
-        .animate-pulse-slow {
-          animation: pulse-slow 3s ease-in-out infinite;
-        }
-
-        @keyframes shine {
-          0% {
-            transform: translateX(-100%) rotate(12deg);
-            opacity: 0;
-          }
-          50% {
-            transform: translateX(100%) rotate(12deg);
-            opacity: 0.3;
-          }
-          100% {
-            transform: translateX(200%) rotate(12deg);
-            opacity: 0;
-          }
-        }
-        .animate-shine {
-          animation: shine 2.5s linear infinite;
+        .animate-fade-up {
+          animation: fade-up 0.8s ease forwards;
         }
       `}</style>
     </section>
