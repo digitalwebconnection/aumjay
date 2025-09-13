@@ -1,10 +1,44 @@
 "use client"
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Home, Building2, Users, Handshake, Sun, Battery, Zap } from "lucide-react"
+import { Sun, Battery, Zap, Home, Building2, Users, Handshake } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import { motion } from "framer-motion"
+
+const homeownerFeatures = [
+  {
+    icon: Sun,
+    title: "Rooftop Solutions",
+    description: "Maximize energy generation with expert rooftop installations."
+  },
+  {
+    icon: Battery,
+    title: "Society Solar Plans",
+    description: "Customized plans for societies to optimize energy use."
+  },
+  {
+    icon: Zap,
+    title: "Subsidy Guidance",
+    description: "We help you access government subsidies and incentives easily."
+  }
+]
+
+const businessFeatures = [
+  {
+    icon: Sun,
+    title: "Product Supply",
+    description: "Panels, inverters, and batteries sourced from top manufacturers."
+  },
+  {
+    icon: Battery,
+    title: "EPC Services",
+    description: "End-to-end engineering and procurement solutions."
+  },
+  {
+    icon: Handshake,
+    title: "Dealer Partnerships",
+    description: "Grow your business through our franchise and partnership models."
+  }
+]
 
 export function TwoPathsSection() {
   const [isVisible, setIsVisible] = useState(false)
@@ -21,157 +55,97 @@ export function TwoPathsSection() {
     return () => observer.disconnect()
   }, [])
 
-  // Motion variants
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50, scale: 0.95 },
-    visible: (delay: number) => ({
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: { duration: 0.8, delay }
-    })
-  }
-
   return (
-    <section
-      ref={sectionRef}
-      className="relative py-28 bg-gradient-to-b from-green-50 via-white to-yellow-50 overflow-hidden"
-    >
-      {/* Animated Background Icons */}
+    <section ref={sectionRef} className="relative py-20 bg-gradient-to-b from-green-50 via-white to-yellow-50 overflow-hidden">
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        <Sun className="absolute top-16 left-20 w-16 h-16 text-yellow-400 opacity-20 animate-float-slow" />
-        <Battery className="absolute bottom-24 left-32 w-14 h-14 text-green-500 opacity-15 animate-float-slow-reverse" />
-        <Zap className="absolute top-1/3 right-24 w-14 h-14 text-yellow-600 opacity-10 animate-float-slow" />
+        <Sun className="absolute top-10 left-10 w-20 h-20 text-yellow-400 opacity-20 animate-float-slow" />
+        <Battery className="absolute bottom-20 right-10 w-16 h-16 text-green-400 opacity-20 animate-float-slow-reverse" />
+        <Zap className="absolute top-1/3 right-20 w-14 h-14 text-yellow-500 opacity-15 animate-float-slow" />
       </div>
 
-      {/* Top & Bottom Glow */}
-      <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-yellow-200/30 to-transparent blur-2xl" />
-      <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-green-200/30 to-transparent blur-2xl" />
-
-      {/* Section Heading */}
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: -30 }}
-            animate={isVisible ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-green-600 to-yellow-500 bg-clip-text text-black/80">
-              Choose Your Solar Journey
-            </h2>
-            <p className="text-lg text-slate-700 max-w-2xl mx-auto">
-              Whether you're a homeowner or business, we provide tailored solar
-              solutions for a greener, brighter future.
-            </p>
-          </motion.div>
-        </div>
+        <h2 className="text-center text-4xl font-bold mb-12 bg-gradient-to-r from-green-600 to-yellow-500 bg-clip-text text-transparent">
+          Choose Your Solar Journey
+        </h2>
 
-        {/* Two Cards */}
-        <div className="grid lg:grid-cols-2 gap-10">
-          {/* Homeowners & Societies */}
-          <motion.div
-            custom={0.2}
-            initial="hidden"
-            animate={isVisible ? "visible" : "hidden"}
-            variants={cardVariants}
-            whileHover={{ scale: 1.05, y: -8 }}
-          >
-            <Card className="relative overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-yellow-200/60 rounded-2xl transition-all duration-500 border border-green-300">
-              {/* Glow Layer */}
-              <div className="absolute inset-0 bg-gradient-to-r from-green-100/40 to-yellow-100/40 opacity-70" />
-              <CardHeader className="relative z-10">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-3 bg-green-100 rounded-full shadow-inner">
-                    <Home className="w-8 h-8 text-green-600" />
-                  </div>
-                  <CardTitle className="text-2xl text-green-900">
-                    For Homeowners & Societies
-                  </CardTitle>
+        <div className="space-y-12">
+          {/* Homeowners Section */}
+          <div className="bg-white rounded-xl shadow-lg border border-black overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+            <div className="flex flex-col md:flex-row">
+              <div className="md:w-1/3 bg-black/80 text-white p-6 flex flex-col justify-center items-center space-y-4" style={{
+                backgroundImage:
+                  "url('https://static.vecteezy.com/system/resources/thumbnails/024/712/158/small/sunset-sky-reflects-solar-panel-sustainable-power-generation-generative-ai-photo.jpg')",
+              }}>
+                
+                <Home className="w-12 h-12" />
+                <h3 className="text-xl font-bold">Homeowners & Societies</h3>
+              </div>
+              <div className="md:w-2/3 p-6 space-y-6">
+                {homeownerFeatures.map((feature, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={isVisible ? { opacity: 1, x: 0 } : {}}
+                    transition={{ delay: 0.3 + index * 0.2 }}
+                    className="flex items-start gap-4 p-4 border-l-4 border-green-500 shadow-xl hover:bg-green-50 rounded-md transition-colors duration-300"
+                  >
+                    <div className="p-2 bg-green-100 rounded-full">
+                      <feature.icon className="w-6 h-6 text-green-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-green-900">{feature.title}</h4>
+                      <p className="text-sm text-gray-600">{feature.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+                <div className="text-center mt-6">
+                  <button className="px-6 py-3 bg-yellow-400 text-black font-bold rounded-md hover:bg-yellow-500 transition-colors duration-300 shadow-md hover:shadow-lg">
+                    Explore Homeowner Plans
+                  </button>
                 </div>
-              </CardHeader>
-              <CardContent className="space-y-4 relative z-10">
-                <div className="space-y-3">
-                  {["Rooftop Solutions", "Society Solar Plans", "Government Subsidy Guidance"].map(
-                    (item, i) => (
-                      <motion.div
-                        key={i}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={isVisible ? { opacity: 1, x: 0 } : {}}
-                        transition={{ delay: 0.4 + i * 0.2 }}
-                        className="flex items-center gap-3"
-                      >
-                        <Sun className="w-4 h-4 text-green-600" />
-                        <span>{item}</span>
-                      </motion.div>
-                    )
-                  )}
-                </div>
-                <Button
-                  className="w-full mt-6 text-black font-bold relative overflow-hidden group bg-yellow-400 hover:shadow-lg hover:shadow-yellow-400/60 hover:-translate-y-1 transition-all duration-300"
-                  size="lg"
-                >
-                  <span className="absolute inset-0 bg-white/30 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-                  <Users className="w-5 h-5 mr-2" />
-                  Explore Homeowner Plans
-                </Button>
-              </CardContent>
-            </Card>
-          </motion.div>
+              </div>
+            </div>
+          </div>
 
-          {/* Businesses & Dealers */}
-          <motion.div
-            custom={0.4}
-            initial="hidden"
-            animate={isVisible ? "visible" : "hidden"}
-            variants={cardVariants}
-            whileHover={{ scale: 1.05, y: -8 }}
-          >
-            <Card className="relative overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-green-200/50 rounded-2xl transition-all duration-500 border border-yellow-200">
-              <div className="absolute inset-0 bg-gradient-to-r from-yellow-100/40 to-green-100/40 opacity-70" />
-              <CardHeader className="relative z-10">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-3 bg-yellow-100 rounded-full shadow-inner">
-                    <Building2 className="w-8 h-8 text-yellow-600" />
-                  </div>
-                  <CardTitle className="text-2xl text-yellow-900">
-                    For Businesses & Dealers
-                  </CardTitle>
+          {/* Businesses Section */}
+          <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl border border-black transition-shadow duration-300">
+            <div className="flex flex-col md:flex-row-reverse">
+              <div className="md:w-1/3 bg-black/50 text-white p-6 flex flex-col justify-center items-center space-y-4" style={{
+                backgroundImage:
+                  "url('https://static.vecteezy.com/system/resources/thumbnails/024/712/158/small/sunset-sky-reflects-solar-panel-sustainable-power-generation-generative-ai-photo.jpg')",
+              }}>
+                <Building2 className="w-12 h-12" />
+                <h3 className="text-xl font-bold">Businesses & Dealers</h3>
+              </div>
+              <div className="md:w-2/3 p-6 space-y-6">
+                {businessFeatures.map((feature, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={isVisible ? { opacity: 1, x: 0 } : {}}
+                    transition={{ delay: 0.3 + index * 0.2 }}
+                    className="flex items-start gap-4 p-4 border-l-4 shadow-xl border-yellow-500 hover:bg-yellow-50 rounded-md transition-colors duration-300"
+                  >
+                    <div className="p-2 bg-yellow-100 rounded-full">
+                      <feature.icon className="w-6 h-6 text-yellow-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-yellow-900">{feature.title}</h4>
+                      <p className="text-sm text-gray-600">{feature.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+                <div className="text-center mt-6">
+                  <button className="px-6 py-3 bg-green-700 text-white font-bold rounded-md hover:bg-green-800 transition-colors duration-300 shadow-md hover:shadow-lg">
+                    Explore Business Solutions
+                  </button>
                 </div>
-              </CardHeader>
-              <CardContent className="space-y-4 relative z-10">
-                <div className="space-y-3">
-                  {[
-                    "Product Supply (Panels, Inverters, Batteries)",
-                    "EPC (Engineering, Procurement, Construction)",
-                    "Partner With Us (Dealer/Franchise Opportunities)"
-                  ].map((item, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={isVisible ? { opacity: 1, x: 0 } : {}}
-                      transition={{ delay: 0.5 + i * 0.2 }}
-                      className="flex items-center gap-3"
-                    >
-                      <Sun className="w-4 h-4 text-yellow-600" />
-                      <span>{item}</span>
-                    </motion.div>
-                  ))}
-                </div>
-                <Button
-                  className="w-full text-white font-bold mt-6 relative overflow-hidden group bg-green-700 hover:shadow-lg hover:shadow-green-500/60 hover:-translate-y-1 transition-all duration-300"
-                  size="lg"
-                >
-                  <span className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-                  <Handshake className="w-5 h-5 mr-2" />
-                  Explore Business Solutions
-                </Button>
-              </CardContent>
-            </Card>
-          </motion.div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Custom Animations */}
       <style jsx>{`
         @keyframes float-slow {
           0%, 100% {
