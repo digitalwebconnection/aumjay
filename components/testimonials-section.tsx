@@ -51,7 +51,7 @@ export function TestimonialsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-14 bg-black/10 overflow-hidden"
+      className="relative py-14 bg-black/10 overflow-hidden "
     >
       {/* Animated Icons */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
@@ -60,7 +60,7 @@ export function TestimonialsSection() {
         <Zap className="absolute top-1/3 right-20 w-12 h-12 text-yellow-500 opacity-25 animate-float-slow" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container max-w-7xl mx-auto px-4 relative z-10">
         <div className="text-center mb-12 text-green-900">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             What Our Customers Say
@@ -74,7 +74,7 @@ export function TestimonialsSection() {
           {testimonials.map((testimonial, index) => (
             <Card
               key={index}
-              className={`w-[300px] bg-white/90 shadow-xl rounded-2xl border border-white/30 transition-transform duration-300 hover:scale-105 hover:shadow-xl ${
+              className={`w-[300px] bg-white/90 shadow-xl rounded-2xl border border-black/50 transition-transform duration-300 hover:scale-105 hover:shadow-xl ${
                 isVisible ? "animate-fade-up opacity-100" : "opacity-0"
               }`}
               style={{ animationDelay: `${index * 0.2}s` }}
