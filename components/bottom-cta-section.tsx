@@ -20,22 +20,25 @@ export function BottomCTASection() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-24 overflow-hidden"
-      style={{
-        backgroundImage:
-          "url('https://images.unsplash.com/photo-1616569328120-19d949f67e2f?auto=format&fit=crop&w=1470&q=80')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      className="relative py-14 overflow-hidden"
     >
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-green-600/40 via-yellow-400/20 to-green-200/30 -z-10" />
+      {/* Background Image with opacity */}
+      <div className="absolute inset-0 -z-10">
+        <div
+          className="w-full h-full bg-cover  bg-center "
+          style={{
+            backgroundImage:
+              "url('https://static.vecteezy.com/system/resources/thumbnails/024/712/158/small/sunset-sky-reflects-solar-panel-sustainable-power-generation-generative-ai-photo.jpg')",
+          }}
+        />
+      </div>
+      <div className="absolute inset-0 bg-black/80 -z-5" ></div>
 
       {/* Floating Icons */}
       <div className="absolute inset-0 -z-10">
-        <Sun className="absolute top-16 left-10 w-16 h-16 text-yellow-300 opacity-30 animate-float-slow" />
-        <Shield className="absolute bottom-20 right-16 w-14 h-14 text-green-400 opacity-25 animate-float-slow" />
-        <TrendingUp className="absolute top-1/3 right-10 w-12 h-12 text-yellow-300 opacity-20 animate-float-slow" />
+        <Sun className="absolute top-16 left-10 w-16 h-16 text-yellow-300 opacity-20 animate-float-slow" />
+        <Shield className="absolute bottom-20 right-16 w-14 h-14 text-green-400 opacity-15 animate-float-slow" />
+        <TrendingUp className="absolute top-1/3 right-10 w-12 h-12 text-yellow-300 opacity-10 animate-float-slow" />
       </div>
 
       <div
