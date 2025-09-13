@@ -20,12 +20,22 @@ export function BottomCTASection() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-24 overflow-hidden bg-gradient-to-br from-green-50 via-yellow-50 to-green-100"
+      className="relative py-24 overflow-hidden"
+      style={{
+        backgroundImage:
+          "url('https://images.unsplash.com/photo-1616569328120-19d949f67e2f?auto=format&fit=crop&w=1470&q=80')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
     >
-      {/* Background animation blobs */}
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-green-600/40 via-yellow-400/20 to-green-200/30 -z-10" />
+
+      {/* Floating Icons */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-10 left-20 w-72 h-72 bg-green-300/30 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 right-10 w-96 h-96 bg-yellow-300/30 rounded-full blur-3xl animate-bounce-slow" />
+        <Sun className="absolute top-16 left-10 w-16 h-16 text-yellow-300 opacity-30 animate-float-slow" />
+        <Shield className="absolute bottom-20 right-16 w-14 h-14 text-green-400 opacity-25 animate-float-slow" />
+        <TrendingUp className="absolute top-1/3 right-10 w-12 h-12 text-yellow-300 opacity-20 animate-float-slow" />
       </div>
 
       <div
@@ -36,23 +46,22 @@ export function BottomCTASection() {
         {/* Left Content */}
         <div>
           <div className="flex items-center gap-4 mb-6">
-            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center relative">
-              <span className="absolute inset-0 bg-yellow-200 blur-xl animate-ping rounded-full" />
+            <div className="w-16 h-16 bg-green-100/60 rounded-full flex items-center justify-center relative">
+              <span className="absolute inset-0 bg-yellow-200/40 blur-xl animate-ping rounded-full" />
               <Sun className="w-8 h-8 text-green-600 relative z-10" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold leading-tight text-green-800">
+            <h2 className="text-3xl md:text-4xl font-bold leading-tight text-white drop-shadow-lg">
               AUMJAY – Delivering Waaree Solar,
               <br />
               Locally in Mumbai & Thane
             </h2>
           </div>
-          <p className="text-lg text-green-700/80 mb-8 max-w-xl">
+          <p className="text-lg text-white/90 mb-8 max-w-xl drop-shadow-sm">
             Ready to start your solar journey? Get a free consultation and
             discover how much you can save on electricity bills.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            {/* Green Button */}
             <Button
               size="lg"
               className="text-lg px-8 py-6 bg-green-600 hover:bg-green-700 text-white relative overflow-hidden group rounded-xl"
@@ -62,7 +71,6 @@ export function BottomCTASection() {
               <span className="relative z-10">Book Free Survey</span>
             </Button>
 
-            {/* Yellow Outline Button */}
             <Button
               variant="outline"
               size="lg"
@@ -96,6 +104,23 @@ export function BottomCTASection() {
           })}
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes float-slow {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-15px); }
+        }
+        .animate-float-slow {
+          animation: float-slow 10s ease-in-out infinite;
+        }
+        @keyframes pulse {
+          0%, 100% { transform: scale(1); opacity: 0.4; }
+          50% { transform: scale(1.1); opacity: 0.6; }
+        }
+        .animate-ping {
+          animation: pulse 4s ease-in-out infinite;
+        }
+      `}</style>
     </section>
   )
 }
