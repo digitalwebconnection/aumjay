@@ -69,13 +69,12 @@ export function ValuePropositionSection() {
                 return (
                   <div
                     key={index}
-                    className={`flex items-start gap-4 transition-all duration-500 ${
-                      isVisible ? "animate-slide-up" : "opacity-0"
-                    }`}
+                    className={`flex items-start gap-4 transition-all duration-500 ${isVisible ? "animate-slide-up" : "opacity-0"
+                      }`}
                     style={{ animationDelay: `${0.2 + index * 0.1}s` }}
                   >
-                    <div className="p-2 bg-primary/10 rounded-lg flex-shrink-0">
-                      <Icon className="w-6 h-6 text-primary" />
+                    <div className="p-2 bg-green rounded-lg flex-shrink-0">
+                      <Icon className="w-6 h-6 text-green-800" />
                     </div>
                     <div>
                       <h3 className="font-semibold mb-1">{benefit.title}</h3>
@@ -93,7 +92,7 @@ export function ValuePropositionSection() {
           >
             <Card className="overflow-hidden">
               <CardContent className="p-0">
-                <div className="aspect-video bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
+                <div className="aspect-video bg-gradient-to-br from-green-800/20 to-secondary/20 flex items-center justify-center">
                   <div className="text-center">
                     <div className="w-24 h-24 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse-glow">
                       <Award className="w-12 h-12 text-primary" />

@@ -56,7 +56,7 @@ export function HighlightsSection() {
       ref={sectionRef}
       className="py-24 bg-white relative overflow-hidden"
     >
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
           Why Choose Our Solar Installation
         </h2>
@@ -68,9 +68,9 @@ export function HighlightsSection() {
               <Card
                 key={index}
                 className={`relative overflow-hidden border text-center border-black bg-white shadow-lg 
-                            transition-all duration-500 ease-in-out
+                            transition-all duration-800 ease-in-out
                             ${isVisible ? "animate-bounce-fade" : "opacity-0 translate-y-5"} 
-                            hover:shadow-3xl hover:scale-105`}
+                            shadow-xl hover:shadow-3xl hover:scale-105`}
                 style={{ animationDelay: isVisible ? `${index * 0.2}s` : '0s' }}
               >
                 <CardContent className="p-4">
