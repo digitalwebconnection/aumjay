@@ -35,11 +35,11 @@ export function HeroSection() {
           />
         ))}
         {/* Overlay with gradient + darker layer */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/80 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/70 to-black/90 z-10" />
       </div>
 
       {/* Floating Solar Icons with Glow */}
-      <div className="absolute inset-0 opacity-30 z-20">
+      <div className="absolute inset-0 opacity-50 z-20">
         <div className="absolute top-20 left-20 animate-float-slow">
           <Sun className="w-16 h-16 text-yellow-400 drop-shadow-glow" />
         </div>
@@ -52,17 +52,17 @@ export function HeroSection() {
       </div>
 
       {/* Hero Content */}
-      <div className="container mx-auto px-6 lg:px-16 text-left relative z-30">
+      <div className="container mx-auto px-6 lg:px-0  text-left relative z-30">
         <div className="max-w-4xl transition-all duration-1000 animate-slide-up">
           <Badge variant="secondary" className="mb-6 text-sm font-medium animate-pulse-glow">
             🏆 Authorized Waaree Franchise
           </Badge>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 bg-gradient-to-r from-yellow-300 via-green-400 to-emerald-500 bg-clip-text text-transparent drop-shadow-lg animate-gradient-x">
+          <h1 className="text-4xl md:text-4xl lg:text-5xl font-extrabold mb-6 bg-gradient-to-r from-yellow-300 via-green-400 to-emerald-500 bg-clip-text text-transparent drop-shadow-lg animate-gradient-x">
             Trusted Solar Partner for Homes, Societies & Businesses
           </h1>
 
-          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-xl animate-fade-in">
+          <p className="text-md md:text-lg text-white/90 mb-8 max-w-2xl animate-fade-in">
             Save up to 90% on electricity bills with India's #1 solar brand – delivered locally by AUMJAY in Mumbai &
             Thane.
           </p>
@@ -78,7 +78,7 @@ export function HeroSection() {
             <Button
               variant="outline"
               size="lg"
-              className="text-lg px-8 py-6 border-2 text-white hover:bg-white/10 bg-transparent hover:scale-105 transition-all duration-300"
+              className="text-lg px-8 py-6 border-2 text-white hover:bg-green-800/80 bg-transparent hover:scale-105 transition-all duration-300"
             >
               📩 Request Business Proposal
             </Button>

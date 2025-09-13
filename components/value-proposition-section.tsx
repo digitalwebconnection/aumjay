@@ -51,7 +51,7 @@ export function ValuePropositionSection() {
 
   return (
     <section ref={sectionRef} className="py-14 bg-background">
-      <div className="container mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className={`transition-all duration-700 ${isVisible ? "animate-slide-up" : "opacity-0"}`}>
             <Badge variant="secondary" className="mb-4">

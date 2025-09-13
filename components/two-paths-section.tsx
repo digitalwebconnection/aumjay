@@ -64,7 +64,7 @@ export function TwoPathsSection() {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <h2 className="text-center text-4xl font-bold mb-12 bg-gradient-to-r from-green-600 to-yellow-500 bg-clip-text text-transparent">
+        <h2 className="text-center text-4xl font-bold mb-12 bg-gradient-to-r from-green-600 to-yellow-500 bg-clip-text text-black">
           Choose Your Solar Journey
         </h2>
 
