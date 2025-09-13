@@ -10,24 +10,21 @@ const stats = [
     number: 25,
     suffix: "+",
     label: "Years Warranty",
-    color: "text-green-600",
-    bg: "bg-green-50",
+    gradient: "bg-gradient-to-r from-green-400 to-green-600",
   },
   {
     icon: TrendingDown,
     number: 90,
     suffix: "%",
     label: "Savings on Electricity Bills",
-    color: "text-yellow-500",
-    bg: "bg-yellow-50",
+    gradient: "bg-gradient-to-r from-yellow-400 to-yellow-600",
   },
   {
     icon: Zap,
     number: 100,
     suffix: "+ kW",
     label: "Projects Pipeline in Mumbai & Thane",
-    color: "text-blue-600",
-    bg: "bg-blue-50",
+    gradient: "bg-gradient-to-r from-blue-400 to-blue-600",
   },
 ]
 
@@ -61,7 +58,6 @@ export function ImpactNumbersSection() {
       },
       { threshold: 0.3 }
     )
-
     if (sectionRef.current) observer.observe(sectionRef.current)
     return () => observer.disconnect()
   }, [])
@@ -69,46 +65,49 @@ export function ImpactNumbersSection() {
   return (
     <section
       ref={sectionRef}
-      aria-label="Impact numbers and statistics"
-      className="relative py-14 bg-gray-100 overflow-hidden"
+      className="py-20 bg-gray-50 overflow-hidden relative"
     >
       <div className="container mx-auto px-6 relative z-10">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
-            Our Impact at a Glance
+          <h2 className="text-4xl font-extrabold text-gray-800 mb-4">
+            Empowering Change, One Panel at a Time
           </h2>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-            Sustainable energy solutions that make a real difference for communities and businesses.
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            We provide sustainable energy solutions that transform homes, businesses, and communities.
           </p>
         </motion.div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {stats.map((stat, index) => {
             const Icon = stat.icon
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.9 }}
                 animate={isVisible ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.7, delay: index * 0.2 }}
-                whileHover={{ scale: 1.05 }}
-                className="bg-white rounded-xl shadow-xl hover:shadow-2xl transition-shadow p-6 flex flex-col items-center text-center"
+                className="flex flex-col items-center space-y-4"
               >
-                <div className={`w-16 h-16 flex items-center justify-center rounded-full ${stat.bg} mb-4`}>
-                  <Icon className={`w-8 h-8 ${stat.color}`} />
+                <div className={`w-20 h-20 flex items-center justify-center rounded-full ${stat.gradient} text-white shadow-lg`}>
+                  <Icon className="w-10 h-10" />
                 </div>
-                <div className={`text-3xl font-bold ${stat.color}`}>
+                <div className="text-4xl font-bold text-gray-800">
                   {animatedNumbers[index]}
-                  {stat.suffix}
+                  <span className="text-xl">{stat.suffix}</span>
                 </div>
-                <p className="mt-2 text-gray-600">{stat.label}</p>
+                <div className="text-lg text-gray-600 text-center px-4">
+                  {stat.label}
+                </div>
+                <motion.div
+                  initial={{ scale: 1 }}
+                  whileHover={{ scale: 1.05 }}
+                  className="w-12 h-1 rounded-full bg-gray-300"
+                />
               </motion.div>
             )
           })}
